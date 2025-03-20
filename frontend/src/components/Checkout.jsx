@@ -34,7 +34,7 @@ export default function Checkout() {
   const API_URL =
     import.meta.env.VITE_API_URL ||
     (import.meta.env.MODE === "development"
-      ? `http://localhost:5000/`
+      ? `http://localhost:5005`
       : `https://e-commerse-2jqj.onrender.com`);
 
   const handleSubmit = async () => {
