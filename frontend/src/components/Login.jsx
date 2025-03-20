@@ -17,15 +17,18 @@ export default function Login() {
       [name]: value,
     }));
   };
+  const API_URL =
+    import.meta.env.VITE_API_URL ||
+    (import.meta.env.MODE === "development"
+      ? `http://localhost:5000/`
+      : `https://e-commerse-2jqj.onrender.com`);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`,
-        formData,
-        { withCredentials: true }
-      );
+      const response = await axios.post(`${API_URL}/api/auth/login`, formData, {
+        withCredentials: true,
+      });
 
       // Save token to localStorage
       localStorage.setItem("token", response.data.token);

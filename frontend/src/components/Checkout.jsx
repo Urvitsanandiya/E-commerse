@@ -31,6 +31,12 @@ export default function Checkout() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const API_URL =
+    import.meta.env.VITE_API_URL ||
+    (import.meta.env.MODE === "development"
+      ? `http://localhost:5000/`
+      : `https://e-commerse-2jqj.onrender.com`);
+
   const handleSubmit = async () => {
     if (!isAuthenticated) {
       navigate("/login"); // Redirect to login if not authenticated
@@ -72,7 +78,7 @@ export default function Checkout() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/users/register`,
+        `${API_URL}/api/users/register`,
         payload,
         {
           withCredentials: true,

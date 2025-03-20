@@ -18,12 +18,18 @@ export default function Signup() {
     });
   };
 
+  const API_URL =
+    import.meta.env.VITE_API_URL ||
+    (import.meta.env.MODE === "development"
+      ? `http://localhost:5000/`
+      : `https://e-commerse-2jqj.onrender.com`);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/auth/register`,
+        `${API_URL}/api/auth/register`,
         formData,
         {
           withCredentials: true,
@@ -51,7 +57,9 @@ export default function Signup() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        {error && <p className="text-coral-500 text-sm mb-4 text-center">{error}</p>}
+        {error && (
+          <p className="text-coral-500 text-sm mb-4 text-center">{error}</p>
+        )}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label

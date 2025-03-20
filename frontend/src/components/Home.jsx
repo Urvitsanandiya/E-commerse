@@ -96,10 +96,10 @@ export default function Home() {
             {sortedProducts.map((product, index) => (
               <div
                 key={product._id || product.id || `product-${index}`}
-                className="group relative p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
+                className="group relative p-2 sm:p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
               >
                 <Link to={`/products/${product._id || product.id}`}>
-                  <div className="aspect-square w-full rounded-lg bg-gray-100 overflow-hidden">
+                  <div className="aspect-square w-full h-40 sm:h-48 rounded-lg bg-gray-100 overflow-hidden">
                     <img
                       alt={product.imageAlt || "Product Image"}
                       src={product.imageSrc || "/fallback-image.jpg"}
@@ -107,13 +107,13 @@ export default function Home() {
                     />
                   </div>
                   <div className="mt-4">
-                    <h3 className="text-lg font-semibold text-teal-700">
+                    <h3 className="text-base sm:text-lg font-semibold text-teal-700">
                       {product.name}
                     </h3>
-                    <p className="mt-2 text-sm text-gray-800 line-clamp-2">
+                    <p className="mt-2 text-xs sm:text-sm text-gray-800 line-clamp-2">
                       {product.description}
                     </p>
-                    <p className="mt-2 text-lg font-bold text-coral-500">
+                    <p className="mt-2 text-base sm:text-lg font-bold text-coral-500">
                       ${product.price}
                     </p>
                   </div>
