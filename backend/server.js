@@ -25,7 +25,8 @@ const allowedOrigins = [
   "http://localhost:5174",
   "http://localhost:5173", // For local development (Vite default port)
   "http://localhost:4173", // For your current frontend port
-  "https://e-commerse-frontend-1che.onrender.com", // For production
+  "https://e-commerse-frontend-1che.onrender.com",
+  "https://e-commerse-1-25gc.onrender.com", // For production
 ];
 
 app.use(
