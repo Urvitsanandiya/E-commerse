@@ -72,7 +72,7 @@ export default function Checkout() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:5005/api/users/register",
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/register`,
         payload,
         {
           withCredentials: true,
@@ -96,32 +96,39 @@ export default function Checkout() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center py-10 px-4">
-      <div className="max-w-4xl w-full bg-white shadow-md rounded-lg p-6 md:p-8">
-        <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
+    <div className="min-h-screen bg-gradient-to-r from-teal-50 to-gray-50 flex justify-center py-10 px-4">
+      <div className="max-w-4xl w-full bg-gradient-to-r from-teal-100 to-gray-100 shadow-lg rounded-lg p-6 md:p-8">
+        <h2 className="text-2xl font-semibold text-teal-800 mb-6">
+          Order Summary
+        </h2>
         {cartItems.map((product) => (
-          <div key={product.id} className="flex justify-between items-center">
+          <div
+            key={product.id}
+            className="flex justify-between items-center mb-4"
+          >
             <div className="flex items-center">
               <img
                 src={product.imageSrc}
                 alt={product.imageAlt}
                 className="w-16 h-16 object-cover rounded-md mr-4"
               />
-              <span>
+              <span className="text-teal-800">
                 {product.name} (x{product.quantity})
               </span>
             </div>
-            <span className="font-semibold">
+            <span className="font-semibold text-teal-800">
               ${(Number(product.price) * product.quantity).toFixed(2)}
             </span>
           </div>
         ))}
-        <div className="border-t mt-4 pt-4 text-lg font-semibold flex justify-between">
-          <span>Total</span>
-          <span>${subtotal}</span>
+        <div className="border-t border-teal-200 mt-4 pt-4 text-lg font-semibold flex justify-between">
+          <span className="text-teal-800">Total</span>
+          <span className="text-teal-800">${subtotal}</span>
         </div>
 
-        <h2 className="text-xl font-semibold mt-8">Contact Information</h2>
+        <h2 className="text-2xl font-semibold text-teal-800 mt-8 mb-6">
+          Contact Information
+        </h2>
         {Object.keys(formData).map((field) => (
           <input
             key={field}
@@ -130,19 +137,19 @@ export default function Checkout() {
             placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
             value={formData[field]}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-md mb-4"
+            className="w-full p-3 border border-teal-200 rounded-md mb-4 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500"
             required={field !== "apartment"}
           />
         ))}
 
         {error && (
-          <div className="text-red-500 text-sm mt-4 text-center">{error}</div>
+          <div className="text-coral-500 text-sm mt-4 text-center">{error}</div>
         )}
 
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="w-full bg-blue-600 text-white py-3 rounded-md font-semibold mt-6 hover:bg-blue-700 transition disabled:bg-blue-400"
+          className="w-full bg-teal-600 text-white py-3 rounded-md font-semibold mt-6 hover:bg-teal-700 transition disabled:bg-teal-400"
         >
           {loading ? "Processing..." : "Confirm Order"}
         </button>

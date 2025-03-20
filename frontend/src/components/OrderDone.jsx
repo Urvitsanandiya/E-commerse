@@ -8,13 +8,15 @@ export default function OrderDone() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-4">
-      <div className="max-w-lg w-full bg-white shadow-md rounded-lg p-8 text-center">
-        <h1 className="text-2xl font-semibold mb-4">Thank You!</h1>
-        <p className="text-gray-600 mb-6">Your order has been successfully placed.</p>
+    <div className="min-h-screen bg-gradient-to-r from-teal-50 to-gray-50 flex justify-center items-center p-4">
+      <div className="max-w-lg w-full bg-gradient-to-r from-teal-100 to-gray-100 shadow-lg rounded-lg p-8 text-center">
+        <h1 className="text-3xl font-semibold text-teal-800 mb-6">Thank You!</h1>
+        <p className="text-gray-600 mb-8">
+          Your order has been successfully placed.
+        </p>
         <button
           onClick={handleGoHome}
-          className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition"
+          className="bg-teal-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-teal-700 transition"
         >
           Go to Home
         </button>

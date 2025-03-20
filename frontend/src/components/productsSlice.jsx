@@ -1,13 +1,16 @@
 // src/redux/slices/productsSlice.js
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
 
 // Async thunk for fetching products
 export const fetchProducts = createAsyncThunk(
-  'products/fetchProducts',
+  "products/fetchProducts",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('http://localhost:5005/api/products');
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/products`
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -17,7 +20,7 @@ export const fetchProducts = createAsyncThunk(
 
 // Products slice
 export const productsSlice = createSlice({
-  name: 'products',
+  name: "products",
   initialState: {
     items: [],
     loading: false,
