@@ -23,8 +23,10 @@ const __dirname = path.dirname(__filename);
 // Middleware
 const allowedOrigins = [
   "http://localhost:5174",
-  "http://localhost:5173", // For local development (Vite default port)
-  "http://localhost:4173", // For your current frontend port
+  "http://localhost:5173",
+  "http://localhost:4175", // For local development (Vite default port)
+  "http://localhost:4173",
+  "http://localhost:4174",// For your current frontend port
   "https://e-commerse-frontend-1che.onrender.com",
   "https://e-commerse-1-25gc.onrender.com", // For production
   "https://e-commerse-2jqj.onrender.com", // Add your backend URL if needed
