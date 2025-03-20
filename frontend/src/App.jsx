@@ -11,7 +11,7 @@ import NotFound from "./components/Pagenotfound";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ProtectedRoute from "./components/Protectroute";
-import OrderDone from "./components/Orderdone";
+import OrderDone from "./components/OrderDone";
 import Footer from "./components/Footer";
 import AuthSync from "./components/AuthSync"; // Import the AuthSync component
 
