@@ -99,7 +99,7 @@ export default function Home() {
                 className="group relative p-3 sm:p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
               >
                 <Link to={`/products/${product._id || product.id}`}>
-                  <div className="aspect-square w-full h-48 sm:h-56 rounded-lg bg-gray-100 overflow-hidden">
+                  <div className="aspect-square w-full h-58 sm:h-56 rounded-lg bg-gray-100 overflow-hidden">
                     <img
                       alt={product.imageAlt || "Product Image"}
                       src={product.imageSrc || "/fallback-image.jpg"}
