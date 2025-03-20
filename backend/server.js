@@ -21,10 +21,21 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Middleware
+const allowedOrigins = [
+  "http://localhost:5173", // For local development
+  "https://e-commerse-frontend-1che.onrender.com", // For production
+];
+
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow your frontend URL
-    credentials: true, // Allow cookies or authorization headers
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // If you need to allow credentials (e.g., cookies)
   })
 );
 app.use(express.json());
