@@ -27,6 +27,7 @@ const allowedOrigins = [
   "http://localhost:4173", // For your current frontend port
   "https://e-commerse-frontend-1che.onrender.com",
   "https://e-commerse-1-25gc.onrender.com", // For production
+  "https://e-commerse-2jqj.onrender.com", // Add your backend URL if needed
 ];
 
 app.use(
@@ -52,6 +53,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 
+// Database Connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
