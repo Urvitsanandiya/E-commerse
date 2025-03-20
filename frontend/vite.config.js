@@ -6,11 +6,14 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    host: "0.0.0.0", // Bind to all network interfaces
-    port: 4173, // Use the default Vite preview port
+    host: '0.0.0.0', // Bind to all network interfaces
+    port: 4173,      // Use the default Vite preview port
   },
   preview: {
-    host: "0.0.0.0", // Bind to all network interfaces for preview
-    port: 4173, // Use the default Vite preview port
+    host: '0.0.0.0', // Bind to all network interfaces for preview
+    port: 4173,      // Use the default Vite preview port
+    allowedHosts: [
+      'e-commerse-frontend-1che.onrender.com', // Allow the Render host
+    ],
   },
 });
