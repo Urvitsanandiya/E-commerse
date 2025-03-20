@@ -92,21 +92,21 @@ export default function Home() {
             </Menu>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-6">
+          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {sortedProducts.map((product, index) => (
               <div
                 key={product._id || product.id || `product-${index}`}
-                className="group relative p-2 sm:p-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
+                className="group relative p-3 sm:p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
               >
                 <Link to={`/products/${product._id || product.id}`}>
-                  <div className="aspect-square w-full h-32 sm:h-40 rounded-lg bg-gray-100 overflow-hidden">
+                  <div className="aspect-square w-full h-48 sm:h-56 rounded-lg bg-gray-100 overflow-hidden">
                     <img
                       alt={product.imageAlt || "Product Image"}
                       src={product.imageSrc || "/fallback-image.jpg"}
                       className="w-full h-full object-cover group-hover:opacity-90"
                     />
                   </div>
-                  <div className="mt-2">
+                  <div className="mt-3">
                     <h3 className="text-sm sm:text-base font-semibold text-teal-700">
                       {product.name}
                     </h3>
